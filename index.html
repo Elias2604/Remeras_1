@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personalizador de Remeras</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Fabric.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
+
+  <!-- Font Awesome para los íconos -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo-container">
+      <img src="img/logo.svg" alt="Logo de la tienda" class="logo">
+      <h1>A E L</h1>
+    </div>
+  </header>
+
+  <!-- Sidebar izquierda -->
+  <div class="sidebar">
+    <h3>Productos</h3>
+    <div class="menu-btn" id="btnRemera">👕 Remeras</div>
+
+    <h3>Imagenes</h3>
+    <label class="menu-btn" for="upload">Subir Imagen</label>
+    <input type="file" id="upload" accept="image/*">
+
+    <h3>Texto</h3>
+    <div class="menu-btn" id="btnTexto">Agregar Texto</div>
+  </div>
+
+  <!-- Editor central -->
+  <div class="editor">
+    <canvas id="tshirtCanvas" width="400" height="500"></canvas>
+  </div>
+
+  <!-- 🔹 Barra de herramientas móvil -->
+<div class="mobile-toolbar">
+  <label for="upload" class="tool-btn">
+    <i class="fa-solid fa-image"></i>
+    <span>Imagen</span>
+  </label>
+
+  <button id="btnTextoMobile" class="tool-btn">
+    <i class="fa-solid fa-font"></i>
+    <span>Texto</span>
+  </button>
+
+  <button id="deleteBtnMobile" class="tool-btn">
+    <i class="fa-solid fa-trash"></i>
+    <span>Borrar</span>
+  </button>
+
+  <button id="colorBtnMobile" class="tool-btn">
+    <i class="fa-solid fa-palette"></i>
+    <span>Color</span>
+  </button>
+</div>
+
+
+  <!-- Sidebar derecha -->
+  <div class="sidebar-right">
+    <h3>Color del Producto</h3>
+      <div class="color-options">
+        <div class="color-circle" style="background:#ffffff;" title="Blanco"></div>
+        <div class="color-circle" style="background:#800000;" title="Bordo"></div>
+        <div class="color-circle" style="background:#ff0000;" title="Rojo"></div>
+        <div class="color-circle" style="background:#0000ff;" title="Azul"></div>
+        <div class="color-circle" style="background:#00ff00;" title="Verde"></div>
+      </div>
+
+
+    <h3>Edición</h3>
+    <button id="deleteBtn" class="menu-btn"> Eliminar seleccionado</button>
+
+    <label for="textColor">Color del texto:</label>
+    <input type="color" id="textColor" value="#000000">
+
+    <label for="textFont">Tipografía:</label>
+    <select id="textFont">
+      <option value="Arial" selected>Arial</option>
+      <option value="Verdana">Verdana</option>
+      <option value="Georgia">Georgia</option>
+      <option value="Courier New">Courier New</option>
+      <option value="Impact">Impact</option>
+    </select>
+
+    <label for="textSize">Tamaño del texto:</label>
+    <input type="number" id="textSize" value="24" min="8" max="120">
+
+    <button class="buy-btn">Talle</button>
+  </div>
+
+<!-- Flechas de navegación -->
+<button id="btnPrev" class="arrow-btn"><i class="fa-solid fa-chevron-left"></i></button>
+<button id="btnNext" class="arrow-btn"><i class="fa-solid fa-chevron-right"></i></button>
+
+  <!-- Agrega este botón cerca del canvas -->
+<button id="btnFlip" class="flip-btn" title="Ver dorso">
+  <img src="img/girar.png" alt="Girar">
+</button>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>
