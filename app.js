@@ -275,3 +275,32 @@ mobileCircles.forEach((circle) => {
     colorPanel.classList.remove("show");
   });
 });
+
+// Para agregar texto en móvil
+const btnTextoMobile = document.getElementById("btnTextoMobile");
+if (btnTextoMobile) {
+  btnTextoMobile.addEventListener("click", () => {
+    const text = new fabric.IText("Texto personalizado", {
+      left: canvas.width / 2 - 60,
+      top: canvas.height / 2 - 30,
+      fill: "#000",
+      fontFamily: "Arial",
+      fontSize: 24,
+    });
+    canvas.add(text);
+    canvas.setActiveObject(text);
+    saveCurrentDesign();
+  });
+}
+
+// Para eliminar en móvil
+const deleteBtnMobile = document.getElementById("deleteBtnMobile");
+if (deleteBtnMobile) {
+  deleteBtnMobile.addEventListener("click", () => {
+    const active = canvas.getActiveObject();
+    if (active && active !== tshirtBase) {
+      canvas.remove(active);
+      saveCurrentDesign();
+    }
+  });
+}
